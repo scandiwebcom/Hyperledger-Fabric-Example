@@ -15,7 +15,18 @@
 
 6. Shim - The package we will use to write chaincode is the package shim. It provides the type Chaincode interface, which is an interface.
 
+## Download Platform-specific Binaries
+- curl -sSL https://goo.gl/6wtTN5 | bash -s 1.1.0-alpha
 
+The command above downloads and executes a bash script that will download and extract all of the platform-specific binaries you will need to set up your network and place them into the cloned repo you created above. It retrieves four platform-specific binaries and places them in the bin sub-directory of the current working directory.
+
+You may want to add that to your PATH environment variable so that these can be picked up without fully qualifying the path to each binary. e.g.:
+- export PATH=<path to download location>/bin:$PATH
+
+## Stop and remove all docker containers and images
+- docker rm -f $(docker ps -aq)
+- docker images
+- docker rmi imageId
 
 ## ERRORS
 - Error starting Simple chaincode: error sending chaincode REGISTER
