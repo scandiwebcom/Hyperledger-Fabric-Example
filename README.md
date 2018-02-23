@@ -37,6 +37,13 @@ $ docker images
 $ docker rmi ${imageId}
 ```
 
+## Docker commands
+
+```bash
+docker exec -it -e COLUMNS=$COLUMNS cli bash # Connect to the cli container with bash
+docker ps -q | xargs -n 1 docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}} {{ .Name }}' | sed 's/ \// /' # Get docker container real IPs
+```
+
 ## Run Network
 
 ### Note
